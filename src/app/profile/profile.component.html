@@ -1,0 +1,27 @@
+<form  (ngSubmit)="saveChanges(f)" class="flex-column" #f="ngForm" >
+    <div>
+        <input ngModel required type="text" name="name" #name id="name">
+        <label for="name"> نام</label>
+    </div>
+    <div>
+        <input ngModel required type="text" name="lastName" #lastName id="lastName">
+        <label for="lastName">نام خانوادگی</label>
+    </div>
+    <div>
+        <input ngModel required type="text" name="userName" #userName id="userName">
+        <label for="userName">نام کاربری</label>
+    </div>
+    <div>
+        <input ngModel required type="tel" name="phoneNumber" #phoneNumber id="phoneNumber">
+        <label for="phoneNumber">شماره تلفن </label>
+    </div>
+    <div>
+        <input ngModel required type="password" name="password" #password id="password">
+        <label for="password">رمز عبور </label>
+    </div>
+    <div>
+        <input ngModel  type="Password" name="newPassword" #newPassword id="newPassword">
+        <label for="newPassword">رمز عبور جدید </label>
+    </div>
+    <button [disabled]="f.form.invalid" class="btn" type="submit">ذخیره ی  نتظیمات</button>
+</form>

@@ -1,0 +1,30 @@
+<div class="bribe-container">
+  <form class="bribe-form" (ngSubmit)="submit()" [formGroup]="bribeForm" >
+    <label for="bribe">رشوه</label>
+    <div class="bribe-form-info">
+      <select required class="bribe-select" id="selectBribe" formControlName="bribee" value="farzaneh" name="selectedBribee">
+        <option  id="placeholder" value="" disabled selected hidden>
+          به کی میخوای اعتبار اضافه کنی؟ <i class="fa-solid fa-user"></i>
+        </option>
+        <option value="farzaneh">فرزانه</option>
+        <option value="ashkan">اشکان</option>
+        <option value="sheyda">شیدا</option>
+        <option value="mehran">مهران</option>
+        <option value="malihe">ملیحه</option>
+      </select>
+      <input
+        required
+        type="number"
+        class="bribe-amount"
+        min="5000"
+        step="1000"
+        name="selectedAmount"
+        id="selectedAmount"
+        placeholder="چقدر؟ "
+        formControlName="bribeAmount"
+      />
+      <input formControlName="desc" type="text" name="explain" id="explain" placeholder="اگه توضیحی هم داری بگو" />
+    </div>
+    <button [disabled]="bribeForm.invalid" type="submit" class="btn bribe-btn">ثبت نهایی رشوه</button>
+  </form>
+</div>

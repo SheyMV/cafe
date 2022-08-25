@@ -1,0 +1,68 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
+@import 'material-icons/iconfont/material-icons.css';
+
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    font-family:'IBM Plex Sans Arabic', sans-serif;
+    box-sizing: border-box;
+  }
+
+  :root{
+    --primary-color:#0fb87f;
+    --light-color:#f4f4f4;
+    --light-bg:#f4f4f4;
+  }
+  body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  li{
+    list-style: none;
+  }
+  a{
+    text-decoration: none;
+  }
+  
+  .flex-row{
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .flex-row-rev{
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .flex-column{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .flex-column-rev{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .flex-center-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h2{
+    font-family:'IBM Plex Sans Arabic', sans-serif;
+
+  }
+  button{
+    cursor: pointer;
+    border: 0;
+    background: none;
+  }
+
+

@@ -1,0 +1,95 @@
+.product{
+    &-container{
+        max-height: 61vh;
+    }
+
+    &-box{
+        border-bottom: 1px solid #9191914a ;
+        max-height: 60vh;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &-info{
+        justify-content: space-between;
+        align-items: flex-end;
+        height: 100%;
+        width: 50%;
+        padding-right: 1rem ;
+        h3{
+            font-weight: 500 ;
+            font-size: 1.3rem;
+        }
+        p{
+            margin-bottom:1rem;
+            font-size: 1.3rem;
+            padding-top:40% ;
+        }
+
+        
+    }
+    &-img-btn{
+        height: 100%;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+        img{
+            margin: 1rem ;
+            max-height: 45vh;
+            max-width: 33vw;
+            border-radius: 2rem;
+
+        }
+        .btn-add-item{
+            width:90%;
+            height: 2rem;
+            border: thin solid var(--primary-color);
+            background: none;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin:0  0 1rem 1rem;
+            border-radius: .5rem;
+        }
+        .quantity{
+            display: flex;
+            margin: 0 0 1rem 1rem;
+            width: 100%;
+            height: 5vh;
+            justify-content: space-evenly;
+            align-items: center;
+            .btn-add,.btn-remove{
+                font-size: 1rem;
+                width: 20%;
+                height: 2rem;
+                border: 2px solid var(--primary-color);
+                color: var(--primary-color);
+                border-radius: 7px;
+                &:hover{
+                    background-color: var(--primary-color);
+                    color: var(--light-color);
+                }
+            }
+
+        }
+    }
+}
+.btn{
+    position: fixed;
+    background: var(--primary-color);
+    color: var(--light-color);
+    bottom: 0;
+    left: 2vw;
+    width: 94%;
+    border: none;
+    height: 8vh;
+    border-radius: 5px;
+    font-size: 1.3rem;
+}
+.margin-b{
+    margin-bottom: 5rem;
+}
+@media (max-width:550px) {
+    .btn-add,
+    .btn-remove{
+        width: 35%;
+    }
+}

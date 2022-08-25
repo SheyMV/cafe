@@ -1,0 +1,70 @@
+@mixin flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.bribe{
+    &-container{
+        padding-top: 2rem;
+        label{
+            font-size: 2.7rem;
+        }
+        
+    }
+    &-form{
+        @include flex-col();
+        justify-content: space-between;
+        text-align: right;
+        &-info{
+        @include flex-col();
+         justify-content: space-around;
+         margin-right: 0.5rem;
+         input,
+         select{
+             font-size: 1.4rem;
+             background: none;
+             border: none;
+             height: 4rem;
+             text-align: right;
+             border-bottom: thin solid lightgray;
+             transition: all .2s ease;
+             &::placeholder{
+                color: black;
+
+             }
+            &:focus{
+                outline: none;
+                border-bottom:thick solid var(--primary-color);
+                &:first-child,
+                &::placeholder{
+                    color: var(--primary-color);
+                    position: relative;
+                    bottom: 1rem;
+                    font-size: 1rem;
+                }
+            }
+         }
+        }
+  
+
+
+    }
+    &-btn{
+        background: var(--primary-color);
+        color: white;
+        max-width: 10rem;
+        height: 3rem;
+        border: none;
+        border-radius: .3rem;
+        font-size: 1.1rem;
+        margin: 1rem;
+        &:hover{
+            background: #0d9668;
+        }
+        &:disabled{
+            background-color: #9ae1cac5;
+            cursor: not-allowed;
+        }
+        
+    }
+}

@@ -1,0 +1,18 @@
+<nav class="header">
+  <div class="credit">
+    <h2>اعتبار {{ creditService.credit }} تومان</h2>
+  </div>
+  <div  class="hamburger">
+    <i (click)="openSideBar()" class="material-icons">menu</i>
+  </div>
+</nav>
+<div class="sideBar">
+  <span  *ngIf="sidebarOpend"   (click)="sidebarOpend = false" ></span>
+  <div  [ngClass]="{ 'show' : sidebarOpend }" class="sideBar-container">
+    <p>[:خوش آمدی</p>
+    <a  (click)="closeSideBar()" [routerLink]="['/']">خانه</a>
+    <a routerLinkActive="active" (click)="closeSideBar()" [routerLink]="['/profile']">حساب کاربری</a>
+    <a routerLinkActive="active" (click)="closeSideBar()" [routerLink]="['/bribe']">رشوه</a>
+    <a routerLinkActive="active" (click)="closeSideBar()" [routerLink]="['/records']">سوابق</a>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="cart-modal">
+  <form #form="ngForm" (ngSubmit)="submitOrder(products,form)" class="cart-container">
+    <div class="cart-header">
+      <h3>بازگشت به منو</h3>
+      <a (click)="closeCart()">
+        <p class="back"> <i class="material-icons">chevron_right</i></p>
+      </a>
+    </div>
+    <div class="cart-body">
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th class="product"></th>
+              <th class="quantity"></th>
+              <th class="subtotal"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="cart-items" *ngFor="let product of products">
+              <td class="product">
+                <div class="img">
+                  <img [src]="product.imagePath" alt="">
+                </div>
+                <div class="info">
+                  <h3>{{product.name}}</h3>
+                </div>
+              </td>
+              <td  class="quantity">
+                <button (click)="addItem(product)" type="button" class="btn-add">+</button>
+                <h4>
+                  {{product.qty}}
+                </h4>
+                <button (click)="removeItem(product);cartLength()" type="button" class="btn-remove">-</button>
+              </td>
+              <td class="price">
+                <p> تومن </p>
+                <p>
+                  {{product.price}}
+                </p>
+              </td>
+            </tr>
+            <tr class="total">
+              <h3>مجموع</h3>
+              <td>
+                <p> تومن </p>
+                <p>
+                  {{total}}
+                </p>
+              </td>
+            </tr>
+            <tr class="notes">
+              <input placeholder="توضیحات" type="text" ngModel name="desc" id="desc">
+            </tr>
+            <tr class="submit-order">
+              <button  type="submit" class="btn-submit">ثبت سفارش</button>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </form>
+</div>

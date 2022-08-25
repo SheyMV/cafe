@@ -1,0 +1,90 @@
+<div class="header">
+    <button (click)="openOrders()" >سفارشات</button>
+    <button (click)="openTransactions()" >ترکنش ها</button>
+    <span  [ngClass]="ordersSection ? 'orders' : 'trans'" class="border-bottom"></span>
+</div>
+<main class="main-content">
+    <div  *ngIf="ordersSection" class="orders-section">
+    <table>
+        <thead class="flex-row-rev">
+            <th class="order-number"><h4>شماره سفارش </h4></th>
+            <th class="order-date"><h4>تاریخ</h4></th>
+            <th class="order-details"><h4></h4></th>
+        </thead>
+        <tbody>
+            <tr [ngClass]="'successful'" class="box flex-row-rev"*ngFor="let order of orders; let i = index">
+                <h5 class="flex-center-center order-number ">{{ order.orderNumber}}</h5>
+                <h5 class="flex-center-center order-date">{{ order.orderDate  | momentJalaali:'dddd jD jMMMM jYYYY, [ساعت] LT'}}</h5>
+                <h5 class="flex-center-center order-details" ><button (click)="openOrderDetails(order)" class="show-details"> مشاهده جزئیات</button></h5>                
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="isOrderDetailsOpen" class="modal-wrapper">
+        <span class="modal-background"></span>
+        <div class="details-modal">
+            <div class="details-header">
+                <div class="order-number">
+                    <h4>شماره سفارش  {{ detailOrderNumber}}</h4>
+                </div>
+                <div class="order-date">
+                    <h5>به تاریخ  {{orderDetailDate | momentJalaali:'jYYYY/jMM/jDD' }}</h5>
+                </div>
+            </div>
+            <div class="details-content">
+                <table>
+                    <thead >
+                        <th class="item-price"><h4>قیمت</h4></th>
+                        <th class="item-qty"><h4>تعداد</h4></th>
+                        <th class="item-name" ><h4>آیتم ها</h4></th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of ordersSubmitted"  >
+                            <td class="item-price"><h5>{{item.price}}</h5></td>
+                            <td class="item-qty" ><h5>{{item.qty}}</h5></td>
+                            <td class="item-name" ><h5>{{item.name}}</h5></td>
+                        </tr>
+                        <tr class="totalPrice"> 
+                            <td><h5>پرداختی</h5></td>
+                            <td><h5>{{totalPrice}}</h5></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <button (click)="isOrderDetailsOpen=!isOrderDetailsOpen" class="close-modal">باشه</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div *ngIf="transactionsSection" class="transactions-section">
+    <table>
+        <thead>
+            <th><h4>توضیحات </h4></th>
+            <th><h4>بابت </h4></th>
+            <th><h4>مبلغ </h4></th>
+            <th><h4>تاریخ</h4></th>
+        </thead>
+        <tbody>
+            <tr  class="box flex-row-rev"*ngFor="let transactions of transactionsList">
+                <h5 class="flex-center-center transactions-date">{{ transactions.date| momentJalaali:'dddd jD jMMMM jYYYY, [ساعت] LT'}}</h5>
+                <h5 [ngClass]="'decrease'" class="flex-center-center transactions-amount">  <span> تومان </span>  {{ transactions.amount}}</h5>
+                <h5 class="flex-center-center transactions-amount">{{ transactions.type}}</h5>
+                <h5 class="flex-center-center transactions-details" ><button (click)="openTransactionsDetails(transactions)" class="show-details">  <i class="material-icons">remove_red_eye</i> </button></h5>                
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="isTransactionsDetailsOpen" class="modal-wrapper">
+        <span class="modal-background"></span>
+        <div class="details-modal">
+            <div class="details-header">
+                <h4>{{transactionsDesc}}</h4>
+            </div>
+            <div class="details-content">
+                <table>
+                   
+                </table>
+                    <button (click)="isTransactionsDetailsOpen=!isTransactionsDetailsOpen" class="close-modal">باشه</button>
+            </div>
+        </div>
+    </div>
+</div>
+</main>

@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="products">
+       <div class="product-container" *ngFor="let product of products; let last = last" [ngClass]="{'margin-b' : last }">
+        <div class="product-box flex-row-rev" >
+          <div class="product-info flex-column">
+            <h3 class="product-name">{{ product.name }}</h3>
+            <p class="product-price">  <span>تومان</span>  {{ product.price }}</p>
+          </div>
+          <div class="product-img-btn flex-column">
+            <img alt="{{ product.name }}" [src]="product.imagePath" />
+            <button *ngIf="!product.isAdded; else showBtn" (click)="addToCart(product)" class="btn-add-item">افزودن</button>
+            <ng-template #showBtn >
+              <div  class="quantity">
+                <button (click)="addItem(product)" class="btn-add">+</button>
+                <h4>
+                  {{product.qty}}
+                </h4>
+                <button (click)="removeItem(product)"class="btn-remove">-</button>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="btn-container">
+      <button (click)="openModal()"   *ngIf="isBtnShowing" class="btn">تکمیل خرید ({{orderQty}})</button>
+    </div>
+    <app-cart (closeModal)="closeModal()" (exitCart)="exitCart()" [selectedProducts]="productsAdded" *ngIf="isModalOpen"></app-cart>
+  </div>
+  
+  
